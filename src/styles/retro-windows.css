@@ -1,0 +1,152 @@
+/* Authentic Windows 95 / 98 / XP UI Stylesheet */
+
+:root {
+  --win-bg: #ece9d8;
+  --win-btn-face: #e0ded0;
+  --win-dark-shadow: #716f64;
+  --win-light-shadow: #f5f4ef;
+  --win-title-blue-start: #0a246a;
+  --win-title-blue-end: #a6caf0;
+  --win-inactive-title-start: #7f7f7f;
+  --win-inactive-title-end: #d4d0c8;
+}
+
+/* Classic Raised Window Border */
+.win-frame {
+  background-color: #ece9d8;
+  box-shadow: 
+    inset 1px 1px 0px #ffffff,
+    inset -1px -1px 0px #706f65,
+    inset 2px 2px 0px #dfdbcf,
+    inset -2px -2px 0px #9e9c93,
+    2px 4px 12px rgba(0, 0, 0, 0.4);
+  border: 1px solid #000000;
+  border-radius: 4px 4px 0 0;
+}
+
+/* Active Titlebar */
+.win-titlebar-active {
+  background: linear-gradient(90deg, #0055ea 0%, #3a93ff 60%, #0055ea 100%);
+  color: #ffffff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Inactive Titlebar */
+.win-titlebar-inactive {
+  background: linear-gradient(90deg, #7697ca 0%, #a4c0e4 100%);
+  color: #d8e4f8;
+}
+
+/* Classic Windows 3D Buttons */
+.win-btn {
+  background: #ece9d8;
+  border-top: 1.5px solid #ffffff;
+  border-left: 1.5px solid #ffffff;
+  border-right: 1.5px solid #706f65;
+  border-bottom: 1.5px solid #706f65;
+  box-shadow: inset 1px 1px 0px #dfdbcf, inset -1px -1px 0px #9e9c93;
+  color: #000000;
+  font-family: 'Tahoma', 'Segoe UI', system-ui, sans-serif;
+  cursor: pointer;
+  user-select: none;
+}
+
+.win-btn:hover {
+  background: #f3f0e2;
+}
+
+.win-btn:active {
+  border-top: 1.5px solid #706f65;
+  border-left: 1.5px solid #706f65;
+  border-right: 1.5px solid #ffffff;
+  border-bottom: 1.5px solid #ffffff;
+  box-shadow: inset 1px 1px 0px #000000;
+  padding-top: calc(0.25rem + 1px);
+  padding-left: calc(0.5rem + 1px);
+}
+
+/* Sunken Inset Panel (Text boxes, status bars, canvas holders) */
+.win-inset {
+  border-top: 1.5px solid #706f65;
+  border-left: 1.5px solid #706f65;
+  border-right: 1.5px solid #ffffff;
+  border-bottom: 1.5px solid #ffffff;
+  background-color: #ffffff;
+}
+
+/* Sunken Grey Panel (Status bars, dialog cards) */
+.win-sunken-bar {
+  border-top: 1px solid #706f65;
+  border-left: 1px solid #706f65;
+  border-right: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  background-color: #e3dfce;
+}
+
+/* Classic Scrollbars */
+.win-scrollbar::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+.win-scrollbar::-webkit-scrollbar-track {
+  background: #ece9d8;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #706f65;
+}
+
+.win-scrollbar::-webkit-scrollbar-thumb {
+  background: #ece9d8;
+  border-top: 1.5px solid #ffffff;
+  border-left: 1.5px solid #ffffff;
+  border-right: 1.5px solid #706f65;
+  border-bottom: 1.5px solid #706f65;
+  box-shadow: inset 1px 1px 0px #dfdbcf, inset -1px -1px 0px #9e9c93;
+}
+
+.win-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #f3f0e2;
+}
+
+/* Scanlines and CRT retro effect */
+.crt-overlay::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%);
+  background-size: 100% 4px;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+/* Blinking cursor animation */
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.blink-cursor {
+  animation: blinkCursor 0.9s infinite;
+}
+
+/* Diagonal progress stripes */
+@keyframes diagonalStripeMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 0; }
+}
+
+.animate-stripes {
+  animation: diagonalStripeMove 1.2s linear infinite;
+}
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
